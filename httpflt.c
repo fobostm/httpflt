@@ -17,6 +17,11 @@ bool IsHttp(const char* data, int dataLen)
 	char* httpTmp = "HTTP/";
 	int httpTmpLen = strlen(httpTmp);
 	
+	if (dataLen <= httpTmpLen + 2)
+	{
+		return false;
+	}
+	
 	if ('\n' == data[dataLen - 2] && '\r' == data[dataLen - 1])
 	{
 		return false;
